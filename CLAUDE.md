@@ -113,15 +113,29 @@ Start with `autogen-core` for low-level agent development. Key concepts:
 - Message routing via topic patterns
 
 ### For Conversational Agents
-Use `autogen-agentchat` for building chat-based agents. Key patterns:
-- `AssistantAgent` for AI-powered responses
-- `UserProxyAgent` for human interaction
-- Team compositions for multi-agent workflows
+Use `autogen-agentchat` for building chat-based agents. Key imports and patterns:
+
+```python
+# Core agent classes
+from autogen_agentchat.agents import AssistantAgent, UserProxyAgent, BaseChatAgent
+
+# Team/Group chat classes  
+from autogen_agentchat.teams import RoundRobinGroupChat, SelectorGroupChat, Swarm
+
+# Termination conditions
+from autogen_agentchat.conditions import MaxMessageTermination
+
+# Model clients (use autogen-ext for specific providers)
+from autogen_ext.models.ollama import OllamaChatCompletionClient
+from autogen_ext.models.openai import OpenAIChatCompletionClient
+```
+
+**Important:** There is no `autogen.ConversableAgent` or `autogen.GroupChatManager` in v0.4. Use the specific imports above.
 
 ### For Model Integration
 Extend via `autogen-ext` for new model providers:
-- Implement model client interfaces
-- Follow existing patterns in `autogen-ext[openai]`
+- Model clients: `autogen_ext.models.{provider}.{ProviderName}ChatCompletionClient`
+- Implement model client interfaces following existing patterns
 - Add proper error handling and retries
 
 ### For Testing
@@ -160,6 +174,25 @@ Extend via `autogen-ext` for new model providers:
 - Monolithic → Modular package structure
 - `pyautogen` → `autogen-core` + `autogen-agentchat`
 - See `migration_guide.md` for detailed migration steps
+
+**Common v0.2 → v0.4 Import Changes:**
+```python
+# v0.2 (deprecated)
+import autogen
+agent = autogen.ConversableAgent(...)
+groupchat = autogen.GroupChat(...)
+manager = autogen.GroupChatManager(...)
+
+# v0.4 (current)
+from autogen_agentchat.agents import AssistantAgent
+from autogen_agentchat.teams import RoundRobinGroupChat
+from autogen_agentchat.conditions import MaxMessageTermination
+from autogen_ext.models.ollama import OllamaChatCompletionClient
+
+agent = AssistantAgent(name="...", model_client=..., system_message="...")
+team = RoundRobinGroupChat(agents, termination_condition=MaxMessageTermination(10))
+result = await team.run(task="...")
+```
 
 **Legacy Support:**
 - v0.2 Python code still in repository but deprecated

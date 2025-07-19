@@ -1,29 +1,52 @@
 {
-  "last_updated": "2025-07-19T18:48:24.836077",
-  "status": "COMPLETE",
-  "offers": {},
-  "counter_offers": {},
-  "deals": [
-    {
-      "ev_id": "EV-1",
-      "cs_id": "CS-C",
-      "price": 0.095,
-      "status": "completed",
-      "timestamp": "2025-07-19T18:47:23.430313"
+  "last_updated": "2025-07-19T23:02:17.923595",
+  "status": "NEGOTIATING",
+  "offers": {
+    "CS-A": {
+      "current": {
+        "price": 0.1,
+        "round": 1
+      },
+      "previous": null
     },
-    {
-      "ev_id": "EV-2",
-      "cs_id": "CS-A",
-      "price": 0.1,
-      "status": "completed",
-      "timestamp": "2025-07-19T18:48:08.063018"
+    "CS-B": {
+      "current": {
+        "price": 0.108,
+        "round": 1
+      },
+      "previous": null
     },
-    {
-      "ev_id": "EV-3",
-      "cs_id": "CS-B",
-      "price": 0.108,
-      "status": "completed",
-      "timestamp": "2025-07-19T18:48:24.835964"
+    "CS-C": {
+      "current": {
+        "price": 0.09100000000000001,
+        "round": 1
+      },
+      "previous": null
     }
-  ]
+  },
+  "counter_offers": {
+    "EV-3": {
+      "target_cs_id": "CS-C",
+      "current": {
+        "price": 0.077,
+        "round": 2
+      },
+      "previous": {
+        "price": 0.082,
+        "round": 1
+      }
+    },
+    "EV-1": {
+      "target_cs_id": "CS-C",
+      "current": {
+        "price": 0.082,
+        "round": 2
+      },
+      "previous": {
+        "price": 0.095,
+        "round": 1
+      }
+    }
+  },
+  "deals": []
 }
