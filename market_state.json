@@ -1,0 +1,29 @@
+{
+  "last_updated": "2025-07-19T18:48:24.836077",
+  "status": "COMPLETE",
+  "offers": {},
+  "counter_offers": {},
+  "deals": [
+    {
+      "ev_id": "EV-1",
+      "cs_id": "CS-C",
+      "price": 0.095,
+      "status": "completed",
+      "timestamp": "2025-07-19T18:47:23.430313"
+    },
+    {
+      "ev_id": "EV-2",
+      "cs_id": "CS-A",
+      "price": 0.1,
+      "status": "completed",
+      "timestamp": "2025-07-19T18:48:08.063018"
+    },
+    {
+      "ev_id": "EV-3",
+      "cs_id": "CS-B",
+      "price": 0.108,
+      "status": "completed",
+      "timestamp": "2025-07-19T18:48:24.835964"
+    }
+  ]
+}
