@@ -5,7 +5,7 @@ from autogen import AssistantAgent, UserProxyAgent, config_list_from_json
 config_list = [
     {
         "model": "gpt-3.5-turbo",
-        "api_key": "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"
+        "api_key": "your_api_key"   
     }
 ]
 

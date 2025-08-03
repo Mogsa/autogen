@@ -18,7 +18,7 @@ uv sync --all-extras
 source .venv/bin/activate
 
 # Set your OpenAI API key
-export OPENAI_API_KEY="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"
+export OPENAI_API_KEY=""
 ```
 
 ### 2. Available Demos
